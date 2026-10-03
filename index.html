@@ -1,258 +1,38 @@
---- index-final.html (原始)
-<!DOCTYPE html>
+--- index.html (原始)
+<!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AniiDex - Registro Completo de Aniimos</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#020617 0%,#0f172a 50%,#1e1b4b 100%);color:#e2e8f0;min-height:100vh}.container{max-width:1200px;margin:0 auto;padding:20px;position:relative;z-index:1}.header{text-align:center;margin-bottom:30px}.header-content{display:inline-flex;align-items:center;gap:12px}.logo{width:56px;height:56px;background:linear-gradient(135deg,#6366f1,#9333ea);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 10px 30px rgba(99,102,241,0.3)}.title{font-size:2.5rem;font-weight:900;background:linear-gradient(to right,#a5b4fc,#d8b4fe,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.subtitle{font-size:0.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px}.stat-card{border-radius:12px;padding:16px;text-align:center;border:1px solid}.stat-card.indigo{background:linear-gradient(135deg,rgba(49,46,129,0.4),rgba(88,28,135,0.4));border-color:rgba(99,102,241,0.3)}.stat-card.emerald{background:linear-gradient(135deg,rgba(6,78,59,0.4),rgba(17,94,89,0.4));border-color:rgba(16,185,129,0.3)}.stat-card.rose{background:linear-gradient(135deg,rgba(136,19,55,0.4),rgba(157,23,77,0.4));border-color:rgba(244,63,94,0.3)}.stat-number{font-size:1.8rem;font-weight:700;color:white}.stat-label{font-size:0.7rem;margin-top:4px}.stat-card.indigo .stat-label{color:#a5b4fc}.stat-card.emerald .stat-label{color:#6ee7b7}.stat-card.rose .stat-label{color:#fda4af}.controls{margin-bottom:24px}.search-input{width:100%;padding:12px 16px;background:rgba(30,41,59,0.6);border:1px solid rgba(51,65,85,0.5);border-radius:12px;color:white;font-size:1rem;outline:none;margin-bottom:12px}.search-input:focus{border-color:rgba(99,102,241,0.5);box-shadow:0 0 0 3px rgba(99,102,241,0.1)}.search-input::placeholder{color:#64748b}.filter-label{font-size:0.75rem;color:#64748b;font-weight:500;margin-right:8px}.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}.filter-btn{padding:6px 12px;border-radius:8px;font-size:0.75rem;font-weight:500;cursor:pointer;border:1px solid rgba(51,65,85,0.3);background:rgba(30,41,59,0.4);color:#94a3b8;transition:all 0.2s}.filter-btn:hover{color:white;border-color:rgba(100,116,139,0.5)}.filter-btn.active{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.card{border-radius:16px;overflow:hidden;transition:transform 0.3s;border:2px solid rgba(51,65,85,0.4);background:linear-gradient(135deg,rgba(30,41,59,0.6),rgba(15,23,42,0.6))}.card:hover{transform:scale(1.02)}.card.complete{border-color:rgba(250,204,21,0.6);background:linear-gradient(135deg,rgba(88,28,135,0.4),rgba(49,46,129,0.4))}.card.captured{border-color:rgba(16,185,129,0.4)}.card-header{padding:16px 16px 8px}.card-badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.badge{font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:999px}.badge-id{background:rgba(51,65,85,0.5);color:#94a3b8}.badge-element{border:1px solid}.card-name{font-size:1.2rem;font-weight:700;color:white;margin-top:8px}.progress-bar{display:flex;align-items:center;gap:8px;margin-top:6px}.progress-track{flex:1;height:6px;background:#334155;border-radius:999px;overflow:hidden}.progress-fill{height:100%;border-radius:999px;transition:width 0.5s}.progress-fill.complete{background:linear-gradient(to right,#facc15,#f59e0b)}.progress-fill.partial{background:linear-gradient(to right,#34d399,#14b8a6)}.progress-text{font-size:0.75rem;color:#94a3b8}.card-image{padding:8px 16px;position:relative}.image-wrapper{border-radius:12px;overflow:hidden;position:relative;cursor:pointer;background:#1e293b}.image-wrapper img{width:100%;height:140px;object-fit:contain;padding:8px;transition:all 0.3s ease;display:block}.image-wrapper.uncaptured img{filter:grayscale(1);opacity:0.4}.image-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2);pointer-events:none}.image-overlay span{font-size:0.875rem;color:#94a3b8;background:rgba(15,23,42,0.8);padding:4px 12px;border-radius:999px}.form-label{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:0.7rem;font-weight:600;color:white;background:rgba(0,0,0,0.8);padding:4px 12px;border-radius:999px;pointer-events:none;white-space:nowrap;backdrop-filter:blur(4px);z-index:10}.card-forms{padding:8px 16px 16px}.forms-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:8px 0;background:none;border:none;color:#cbd5e1;font-size:0.875rem;font-weight:500;cursor:pointer}.forms-toggle:hover{color:white}.forms-toggle svg{transition:transform 0.3s}.forms-toggle.expanded svg{transform:rotate(180deg)}.forms-list{margin-top:8px;display:none}.forms-list.show{display:block}.form-item{border-radius:12px;padding:12px;margin-bottom:8px;transition:all 0.3s;border:1px solid rgba(51,65,85,0.3);background:rgba(30,41,59,0.4);cursor:pointer}.form-item:hover{border-color:rgba(100,116,139,0.5);background:rgba(30,41,59,0.6)}.form-item.captured{background:rgba(6,78,59,0.2);border-color:rgba(16,185,129,0.3)}.form-item.selected{border-color:rgba(168,85,247,0.6);background:rgba(168,85,247,0.1);box-shadow:0 0 12px rgba(168,85,247,0.2)}.form-header{display:flex;align-items:center;gap:8px}.checkbox-wrapper{position:relative;flex-shrink:0}.checkbox-wrapper input{position:absolute;opacity:0;width:0;height:0}.checkbox-custom{width:20px;height:20px;border-radius:4px;border:2px solid #64748b;display:flex;align-items:center;justify-content:center;transition:all 0.2s;cursor:pointer}.checkbox-wrapper input:checked+.checkbox-custom{border-color:#34d399;background:#10b981}.checkbox-custom svg{display:none}.checkbox-wrapper input:checked+.checkbox-custom svg{display:block}.form-name{font-size:0.875rem;font-weight:600;color:#cbd5e1;flex:1}.form-item.captured .form-name{color:#6ee7b7}.form-item.selected .form-name{color:#d8b4fe}.form-category{font-size:0.625rem;font-weight:700;padding:2px 6px;border-radius:999px;text-transform:uppercase;border:1px solid;flex-shrink:0}.view-btn{font-size:0.625rem;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid rgba(168,85,247,0.4);background:rgba(168,85,247,0.1);color:#d8b4fe;cursor:pointer;transition:all 0.2s;flex-shrink:0}.view-btn:hover{background:rgba(168,85,247,0.2);border-color:rgba(168,85,247,0.6)}.form-info{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.form-tag{font-size:0.7rem;color:#94a3b8;background:rgba(51,65,85,0.5);padding:2px 8px;border-radius:999px}.star{color:#facc15;font-size:1.2rem;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}.footer{text-align:center;margin-top:60px;padding-bottom:30px;color:#475569;font-size:0.875rem}.footer a{color:#818cf8;text-decoration:underline}@media(max-width:768px){.title{font-size:1.8rem}.stats{grid-template-columns:repeat(3,1fr);gap:8px}.stat-card{padding:12px 8px}.stat-number{font-size:1.4rem}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.card-name{font-size:1rem}.image-wrapper img{height:120px}.form-item{padding:10px}.form-name{font-size:0.75rem}.form-category{font-size:0.6rem}.view-btn{font-size:0.6rem;padding:2px 6px}}@media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:8px}.card-header{padding:12px 12px 6px}.card-image{padding:6px 12px}.card-forms{padding:6px 12px 12px}.image-wrapper img{height:100px}}.bg-effect{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}.bg-blob{position:absolute;border-radius:50%;filter:blur(80px);animation:float 8s ease-in-out infinite}.bg-blob-1{top:25%;left:-80px;width:300px;height:300px;background:rgba(139,92,246,0.1)}.bg-blob-2{bottom:25%;right:-80px;width:400px;height:400px;background:rgba(99,102,241,0.1);animation-delay:2s}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-</style>
-</head>
-<body>
-<div class="bg-effect"><div class="bg-blob bg-blob-1"></div><div class="bg-blob bg-blob-2"></div></div>
-<div class="container">
-<header class="header"><div class="header-content"><div class="logo">🔮</div><div><h1 class="title">AniiDex</h1><p class="subtitle">Sistema de Registro de Aniimos • 93 Criaturas</p></div></div></header>
-<div class="stats" id="stats"></div>
-<div class="controls">
-<input type="text" class="search-input" id="search" placeholder="🔍 Buscar Aniimo por nome...">
-<div class="filters"><span class="filter-label">Elemento:</span><div id="element-filters"></div></div>
-<div class="filters"><span class="filter-label">Região:</span><select id="habitat-filter" class="filter-btn" style="padding:6px 12px;cursor:pointer"><option value="all">Todas as Regiões</option></select></div>
-</div>
-<div class="grid" id="grid"></div>
-<footer class="footer"><p>AniiDex © 2026 — Dados e imagens baseados no jogo <a href="https://www.aniimo.com/pt/" target="_blank">Aniimo</a></p><p style="margin-top:4px;font-size:0.7rem;">💡 Clique em "Ver" para ver o Aniimo em cada forma com imagem real!</p></footer>
-</div>
-<script>
-const B="https://aniimotools.dev/assets/creatures/";
-const a=n=>`${B}avatar/${n}.webp`;
-const f=(n,x)=>`${B}forms/${n}-${x}-c.webp`;
-const s=(n,c)=>`${B}forms/${n}-a${c}-c.webp`;
-
-const EC={"Fogo":"#FF6B35","Água":"#4FC3F7","Planta":"#66BB6A","Sombrio":"#7E57C2","Vento":"#80DEEA","Terra":"#A1887F","Gelo":"#B3E5FC","Raio":"#FFD54F"};
-const HC={"Campos de Nimbus":{c:"Ensolarado",i:"☀️"},"Crista da Presa Bestial":{c:"Ventoso Frio",i:"🌬️"},"Estreito Argênteo":{c:"Litorâneo",i:"🌊"},"Baía Crescente":{c:"Tropical Úmido",i:"🌴"},"Pouso do Eco":{c:"Nebuloso",i:"🌫️"},"Caminho Berilo":{c:"Temperado Seco",i:"🏜️"},"Floresta das Estrelas Cadentes":{c:"Noturno Místico",i:"🌙"},"Bosques Nebulosos":{c:"Névoa Úmida",i:"🌲"},"Bosque da Torre de Rosas":{c:"Floresta Densa",i:"🌹"},"Mar de Flores":{c:"Primavera Eterna",i:"🌸"},"Bosque Relâmpago":{c:"Tempestade Elétrica",i:"⚡"},"Ponte Terrestre de Zéfiro":{c:"Árido Vulcânico",i:"🌋"},"Planaltos Rubros":{c:"Altitude Fria",i:"🏔️"},"Costa das Flores da Maré":{c:"Costa Tempestuosa",i:"🌊"},"Prado Derivante":{c:"Neblina Gelada",i:"❄️"}};
-
-function mf(id,nm,ct,hb,im){const f={id:`${id}-${nm.toLowerCase().replace(/\s+/g,'-')}`,name:nm,category:ct,image:im};if(hb&&HC[hb]){f.region=hb;f.climate=HC[hb].c;f.climateIcon=HC[hb].i}return f}
-const bf=(id,nm,im)=>({id:`${id}-basica`,name:"Forma Básica",category:"basica",image:im});
-const pf=(id,nm,im)=>({id:`${id}-prismana`,name:"Forma Prismana",category:"prismana",image:im});
-const sf=(id,nm,im)=>({id:`${id}-cintilante`,name:"Forma Cintilante",category:"cintilante",image:im});
-const af=(id,nm,im)=>({id:`${id}-alfa`,name:"Forma Alfa",category:"alfa",image:im});
-
-const aniimos=[
-{id:1,name:"Emberpup",elements:["Fogo"],habitats:["Campos de Nimbus","Bosques Nebulosos","Estreito Argênteo","Pouso do Eco","Crista da Presa Bestial"],forms:[bf("001","Emberpup",a("emberpup")),mf("001","Forma das Terras Altas","regional","Campos de Nimbus",f("emberpup",2)),mf("001","Forma da Floresta Montanhosa","regional","Crista da Presa Bestial",f("emberpup",3))]},
-{id:2,name:"Flameruff",elements:["Fogo"],habitats:["Campos de Nimbus","Estreito Argênteo","Pouso do Eco","Crista da Presa Bestial"],forms:[bf("002","Flameruff",a("flameruff")),mf("002","Forma das Terras Altas","regional","Campos de Nimbus",f("flameruff",2)),mf("002","Forma da Floresta Montanhosa","regional","Crista da Presa Bestial",f("flameruff",3))]},
-{id:3,name:"Scorchhowl",elements:["Fogo"],habitats:["Crista da Presa Bestial"],forms:[bf("003","Scorchhowl",a("scorchhowl")),mf("003","Forma das Terras Altas","regional","Crista da Presa Bestial",f("scorchhowl",2)),mf("003","Forma da Floresta Montanhosa","regional","Crista da Presa Bestial",f("scorchhowl",3)),pf("003","Scorchhowl",s("scorchhowl","1005303")),mf("003","Forma Arco-Umbral","regional","Crista da Presa Bestial",f("scorchhowl",4)),mf("003","Forma da Tempestade","climatica",s("scorchhowl","1005302"))]},
-{id:4,name:"Inferlupa",elements:["Fogo","Sombrio"],habitats:[],forms:[bf("004","Inferlupa",a("inferlupa")),pf("004","Inferlupa",s("inferlupa","1005503"))]},
-{id:5,name:"Celestis",elements:["Sombrio"],habitats:["Campos de Nimbus","Estreito Argênteo","Pouso do Eco","Floresta das Estrelas Cadentes"],forms:[bf("005","Celestis",a("celestis"))]},
-{id:6,name:"Stellarys",elements:["Sombrio"],habitats:["Floresta das Estrelas Cadentes"],forms:[bf("006","Stellarys",a("stellarys")),pf("006","Stellarys",s("stellarys","1001202")),mf("006","Forma Arco-Umbral","regional","Floresta das Estrelas Cadentes",f("stellarys",2)),mf("006","Forma da Chuva Torrencial","climatica",s("stellarys","1001201"))]},
-{id:7,name:"Chirpi",elements:["Vento"],habitats:["Campos de Nimbus","Estreito Argênteo","Crista da Presa Bestial","Bosque Relâmpago"],forms:[bf("007","Chirpi",a("chirpi")),mf("007","Forma das Terras Altas","regional","Campos de Nimbus",f("chirpi",3)),mf("007","Forma da Praia","regional","Estreito Argênteo",f("chirpi",2))]},
-{id:8,name:"Tromber",elements:["Vento"],habitats:["Estreito Argênteo"],forms:[bf("008","Tromber",a("tromber")),mf("008","Forma das Terras Altas","regional","Estreito Argênteo",f("tromber",2)),mf("008","Forma da Praia","regional","Estreito Argênteo",f("tromber",3))]},
-{id:9,name:"Cornet",elements:["Vento"],habitats:["Estreito Argênteo"],forms:[bf("009","Cornet",a("cornet")),mf("009","Forma das Terras Altas","regional","Estreito Argênteo",f("cornet",2)),mf("009","Forma da Praia","regional","Estreito Argênteo",f("cornet",3)),pf("009","Cornet",s("cornet","1018502")),mf("009","Forma Arco-Umbral","regional","Estreito Argênteo",f("cornet",4))]},
-{id:10,name:"Tubster",elements:["Vento"],habitats:["Estreito Argênteo"],forms:[bf("010","Tubster",a("tubster")),mf("010","Forma das Terras Altas","regional","Estreito Argênteo",f("tubster",2)),mf("010","Forma da Praia","regional","Estreito Argênteo",f("tubster",3))]},
-{id:11,name:"Iris",elements:["Planta"],habitats:["Mar de Flores"],forms:[bf("011","Iris",a("iris")),mf("011","Forma das Terras Altas","regional","Mar de Flores",f("iris",2)),mf("011","Forma da Floresta Montanhosa","regional","Mar de Flores",f("iris",3)),pf("011","Iris",f("iris",7)),mf("011","Forma da Floresta","regional","Mar de Flores",f("iris",3)),mf("011","Forma do Planalto","regional","Mar de Flores",f("iris",6)),mf("011","Forma da Campina","regional","Mar de Flores",f("iris",4))]},
-{id:12,name:"Irisal",elements:["Planta"],habitats:["Mar de Flores"],forms:[bf("012","Irisal",a("irisal")),mf("012","Forma das Terras Altas","regional","Mar de Flores",f("irisal",2)),mf("012","Forma da Floresta Montanhosa","regional","Mar de Flores",f("irisal",3)),pf("012","Irisal",f("irisal",7)),mf("012","Forma da Floresta","regional","Mar de Flores",f("irisal",3)),mf("012","Forma do Planalto","regional","Mar de Flores",f("irisal",6)),mf("012","Forma da Campina","regional","Mar de Flores",f("irisal",4))]},
-{id:14,name:"Skippy",elements:["Água"],habitats:["Campos de Nimbus","Floresta das Estrelas Cadentes","Bosques Nebulosos"],forms:[bf("014","Skippy",a("skippy")),mf("014","Forma do Campo de Neve","regional","Floresta das Estrelas Cadentes",f("skippy",2)),mf("014","Forma do Mar de Flores","regional","Floresta das Estrelas Cadentes",f("skippy",3))]},
-{id:15,name:"Pranky",elements:["Água"],habitats:["Campos de Nimbus","Floresta das Estrelas Cadentes","Bosques Nebulosos"],forms:[bf("015","Pranky",a("pranky")),mf("015","Forma do Campo de Neve","regional","Floresta das Estrelas Cadentes",f("pranky",2)),mf("015","Forma do Mar de Flores","regional","Floresta das Estrelas Cadentes",f("pranky",3))]},
-{id:16,name:"Glacy",elements:["Água","Gelo"],habitats:[],forms:[bf("016","Glacy",a("glacy")),pf("016","Glacy",s("glacy","1004302")),mf("016","Forma do Campo de Neve","regional","Prado Derivante",f("glacy",2)),mf("016","Forma do Mar de Flores","regional","Mar de Flores",f("glacy",3))]},
-{id:17,name:"Leafy",elements:["Planta","Água"],habitats:["Bosques Nebulosos"],forms:[bf("017","Leafy",a("leafy"))]},
-{id:18,name:"Nimbi",elements:["Vento"],habitats:["Campos de Nimbus","Estreito Argênteo"],forms:[bf("018","Nimbi",a("nimbi")),mf("018","Forma da Chuva Torrencial","climatica",s("nimbi","1026101")),mf("018","Forma do Planalto","regional","Campos de Nimbus",f("nimbi",2)),mf("018","Forma da Névoa","regional","Campos de Nimbus",f("nimbi",3))]},
-{id:19,name:"Turbo",elements:["Vento"],habitats:["Campos de Nimbus","Estreito Argênteo"],forms:[bf("019","Turbo",a("turbo")),pf("019","Turbo",s("turbo","1026204")),mf("019","Forma Arco-Umbral","regional","Campos de Nimbus",f("turbo",3)),mf("019","Forma da Chuva Torrencial","climatica",s("turbo","1026201")),mf("019","Forma do Planalto","regional","Campos de Nimbus",f("turbo",2)),mf("019","Forma da Névoa","regional","Campos de Nimbus",f("turbo",5))]},
-{id:20,name:"Dreaple",elements:["Sombrio"],habitats:[],forms:[bf("020","Dreaple",a("dreaple"))]},
-{id:21,name:"Hummin",elements:["Planta"],habitats:["Campos de Nimbus","Estreito Argênteo","Floresta das Estrelas Cadentes","Bosques Nebulosos","Bosque Relâmpago"],forms:[bf("021","Hummin",a("hummin")),mf("021","Forma da Montanha","regional","Bosque Relâmpago",f("hummin",2))]},
-{id:22,name:"Witchin",elements:["Sombrio","Planta"],habitats:["Bosques Nebulosos"],forms:[bf("022","Witchin",a("witchin")),pf("022","Witchin",s("witchin","1020302")),mf("022","Forma Arco-Umbral","regional","Bosques Nebulosos",f("witchin",3)),mf("022","Forma da Montanha","regional","Bosques Nebulosos",f("witchin",2))]},
-{id:23,name:"Tuckin",elements:["Planta"],habitats:[],forms:[bf("023","Tuckin",a("tuckin")),mf("023","Forma da Montanha","regional","Ponte Terrestre de Zéfiro",f("tuckin",2))]},
-{id:24,name:"Budclaw",elements:["Terra","Planta"],habitats:["Campos de Nimbus","Crista da Presa Bestial","Caminho Berilo","Ponte Terrestre de Zéfiro"],forms:[bf("024","Budclaw",a("budclaw")),mf("024","Forma da Praia","regional","Baía Crescente",f("budclaw",3)),mf("024","Forma do Lameiro","regional","Caminho Berilo",f("budclaw",2)),mf("024","Forma da Baía","regional","Baía Crescente",f("budclaw",4))]},
-{id:25,name:"Shrubclaw",elements:["Terra","Planta"],habitats:["Caminho Berilo"],forms:[bf("025","Shrubclaw",a("shrubclaw")),mf("025","Forma da Praia","regional","Baía Crescente",f("shrubclaw",3)),mf("025","Forma do Lameiro","regional","Caminho Berilo",f("shrubclaw",2)),mf("025","Forma da Baía","regional","Baía Crescente",f("shrubclaw",4))]},
-{id:26,name:"Geoclaw",elements:["Gelo"],habitats:[],forms:[bf("026","Geoclaw",a("geoclaw"))]},
-{id:27,name:"Sparki",elements:["Fogo"],habitats:["Campos de Nimbus","Crista da Presa Bestial","Bosque Relâmpago"],forms:[bf("027","Sparki",a("sparki")),mf("027","Forma das Terras Altas","regional","Campos de Nimbus",f("sparki",2)),mf("027","Forma da Floresta","regional","Bosque Relâmpago",f("sparki",3)),mf("027","Forma do Mar de Flores","regional","Mar de Flores",f("sparki",4))]},
-{id:28,name:"Flamerion",elements:["Fogo"],habitats:["Crista da Presa Bestial"],forms:[bf("028","Flamerion",a("flamerion")),mf("028","Forma das Terras Altas","regional","Crista da Presa Bestial",f("flamerion",2)),mf("028","Forma da Floresta","regional","Bosque Relâmpago",f("flamerion",3)),mf("028","Forma do Mar de Flores","regional","Mar de Flores",f("flamerion",4))]},
-{id:29,name:"Flutternym",elements:["Vento"],habitats:["Campos de Nimbus","Mar de Flores","Bosques Nebulosos","Bosque Relâmpago"],forms:[bf("029","Flutternym",a("flutternym")),mf("029","Forma da Floresta Montanhosa","regional","Bosque Relâmpago",f("flutternym",4)),mf("029","Forma Noturna","climatica",f("flutternym",3)),mf("029","Forma do Mar de Flores","regional","Mar de Flores",f("flutternym",2))]},
-{id:30,name:"Gracewing",elements:["Vento"],habitats:[],forms:[bf("030","Gracewing",a("gracewing")),mf("030","Forma da Floresta Montanhosa","regional","Bosque Relâmpago",f("gracewing",4)),mf("030","Forma Noturna","climatica",f("gracewing",3)),mf("030","Forma do Mar de Flores","regional","Mar de Flores",f("gracewing",2))]},
-{id:31,name:"Somniwing",elements:["Vento","Planta"],habitats:[],forms:[bf("031","Somniwing",a("somniwing"))]},
-{id:32,name:"Eko",elements:["Vento"],habitats:["Floresta das Estrelas Cadentes"],forms:[bf("032","Eko",a("eko"))]},
-{id:33,name:"Eklue",elements:["Vento"],habitats:["Floresta das Estrelas Cadentes"],forms:[bf("033","Eklue",a("eklue"))]},
-{id:34,name:"Budsquire",elements:["Planta"],habitats:["Bosque da Torre de Rosas","Mar de Flores"],forms:[bf("034","Budsquire",a("budsquire")),mf("034","Forma da Torre de Madeira","regional","Bosque da Torre de Rosas",f("budsquire",2))]},
-{id:35,name:"Thornblade",elements:["Planta"],habitats:["Mar de Flores"],forms:[bf("035","Thornblade",a("thornblade")),pf("035","Thornblade",s("thornblade","1032302")),mf("035","Forma Arco-Umbral","regional","Mar de Flores",f("thornblade",3)),mf("035","Forma da Chuva Torrencial","climatica",s("thornblade","1032301")),mf("035","Forma da Torre de Madeira","regional","Bosque da Torre de Rosas",f("thornblade",2))]},
-{id:36,name:"Melloblum",elements:["Planta"],habitats:["Bosque da Torre de Rosas"],forms:[bf("036","Melloblum",a("melloblum")),pf("036","Melloblum",s("melloblum","1032402"))]},
-{id:37,name:"Pomegg",elements:["Planta"],habitats:["Bosque da Torre de Rosas"],forms:[bf("037","Pomegg",a("pomegg")),mf("037","Forma das Terras Altas","regional","Bosque da Torre de Rosas",f("pomegg",3)),mf("037","Forma do Campo de Neve","regional","Prado Derivante",f("pomegg",2)),mf("037","Forma do Mar de Flores","regional","Mar de Flores",f("pomegg",4))]},
-{id:38,name:"Dazmand",elements:["Raio"],habitats:[],forms:[bf("038","Dazmand",a("dazmand"))]},
-{id:39,name:"Pomawk",elements:["Planta"],habitats:["Bosque da Torre de Rosas"],forms:[bf("039","Pomawk",a("pomawk")),mf("039","Forma das Terras Altas","regional","Bosque da Torre de Rosas",f("pomawk",3)),mf("039","Forma do Campo de Neve","regional","Prado Derivante",f("pomawk",2)),mf("039","Forma do Mar de Flores","regional","Mar de Flores",f("pomawk",4))]},
-{id:40,name:"Dewy",elements:["Sombrio"],habitats:["Bosque da Torre de Rosas","Mar de Flores"],forms:[bf("040","Dewy",a("dewy"))]},
-{id:41,name:"Fragrancier",elements:["Sombrio"],habitats:["Mar de Flores"],forms:[bf("041","Fragrancier",a("fragrancier"))]},
-{id:42,name:"Wisptis",elements:["Sombrio"],habitats:["Caminho Berilo"],forms:[bf("042","Wisptis",a("wisptis")),mf("042","Forma das Terras Altas","regional","Caminho Berilo",f("wisptis",3)),mf("042","Forma da Floresta","regional","Caminho Berilo",f("wisptis",2))]},
-{id:43,name:"Ignitis",elements:["Sombrio"],habitats:["Caminho Berilo"],forms:[bf("043","Ignitis",a("ignitis")),pf("043","Ignitis",s("ignitis","1003202")),mf("043","Forma Arco-Umbral","regional","Caminho Berilo",f("ignitis",4)),mf("043","Forma das Terras Altas","regional","Caminho Berilo",f("ignitis",3)),mf("043","Forma da Floresta","regional","Caminho Berilo",f("ignitis",2))]},
-{id:44,name:"Fulmintis",elements:["Raio"],habitats:[],forms:[bf("044","Fulmintis",a("fulmintis")),pf("044","Fulmintis",s("fulmintis","1003305"))]},
-{id:45,name:"Bonesky",elements:["Gelo"],habitats:["Crista da Presa Bestial","Prado Derivante"],forms:[bf("045","Bonesky",a("bonesky")),mf("045","Forma Noturna","climatica",f("bonesky",2))]},
-{id:46,name:"Fenrier",elements:["Gelo"],habitats:["Crista da Presa Bestial","Prado Derivante"],forms:[bf("046","Fenrier",a("fenrier")),mf("046","Forma Noturna","climatica",f("fenrier",2))]},
-{id:47,name:"Glynsera",elements:["Gelo"],habitats:["Crista da Presa Bestial"],forms:[bf("047","Glynsera",a("glynsera")),pf("047","Glynsera",s("glynsera","1013301")),mf("047","Forma Noturna","climatica",f("glynsera",2))]},
-{id:48,name:"Bolty",elements:["Raio"],habitats:["Bosque Relâmpago"],forms:[bf("048","Bolty",a("bolty")),mf("048","Forma da Floresta Montanhosa","regional","Bosque Relâmpago",f("bolty",2))]},
-{id:49,name:"Blazen",elements:["Raio"],habitats:["Bosque Relâmpago"],forms:[bf("049","Blazen",a("blazen")),pf("049","Blazen",s("blazen","1022201")),mf("049","Forma Arco-Umbral","regional","Bosque Relâmpago",f("blazen",3)),mf("049","Forma da Floresta Montanhosa","regional","Bosque Relâmpago",f("blazen",2))]},
-{id:50,name:"Susuta",elements:["Água"],habitats:["Pouso do Eco"],forms:[bf("050","Susuta",a("susuta")),mf("050","Forma Noturna","climatica",f("susuta",2))]},
-{id:51,name:"Popota",elements:["Água"],habitats:["Pouso do Eco"],forms:[bf("051","Popota",a("popota")),mf("051","Forma Noturna","climatica",f("popota",2))]},
-{id:52,name:"Piopiota",elements:["Água"],habitats:[],forms:[bf("052","Piopiota",a("piopiota")),mf("052","Forma Noturna","climatica",f("piopiota",2))]},
-{id:53,name:"Panpanta",elements:["Água"],habitats:["Pouso do Eco"],forms:[bf("053","Panpanta",a("panpanta")),pf("053","Panpanta",s("panpanta","1017402")),mf("053","Forma Noturna","climatica",f("panpanta",2))]},
-{id:54,name:"Shelly",elements:["Água"],habitats:["Baía Crescente","Pouso do Eco"],forms:[bf("054","Shelly",a("shelly"))]},
-{id:55,name:"Sheldon",elements:["Água"],habitats:["Pouso do Eco"],forms:[bf("055","Sheldon",a("sheldon"))]},
-{id:56,name:"Sherro",elements:["Água"],habitats:[],forms:[bf("056","Sherro",a("sherro")),pf("056","Sherro",s("sherro","1019402")),mf("056","Forma Arco-Umbral","regional","Baía Crescente",f("sherro",2)),mf("056","Forma da Tempestade","climatica",s("sherro","1019401"))]},
-{id:57,name:"Baleetle",elements:["Terra"],habitats:["Caminho Berilo"],forms:[bf("057","Baleetle",a("baleetle")),mf("057","Forma do Campo de Neve","regional","Prado Derivante",f("baleetle",2))]},
-{id:58,name:"Waleetle",elements:["Terra"],habitats:["Caminho Berilo"],forms:[bf("058","Waleetle",a("waleetle")),pf("058","Waleetle",s("waleetle","1045302")),mf("058","Forma do Campo de Neve","regional","Prado Derivante",f("waleetle",2))]},
-{id:59,name:"Bouldus",elements:["Terra"],habitats:["Caminho Berilo"],forms:[bf("059","Bouldus",a("bouldus")),mf("059","Forma do Campo de Neve","regional","Prado Derivante",f("bouldus",2))]},
-{id:60,name:"Fentuft",elements:["Raio"],habitats:["Prado Derivante"],forms:[bf("060","Fentuft",a("fentuft"))]},
-{id:61,name:"Fenmane",elements:["Raio"],habitats:["Prado Derivante"],forms:[bf("061","Fenmane",a("fenmane")),pf("061","Fenmane",s("fenmane","1029301"))]},
-{id:62,name:"Helmut",elements:["Sombrio"],habitats:["Planaltos Rubros"],forms:[bf("062","Helmut",a("helmut")),mf("062","Forma da Floresta Montanhosa","regional","Planaltos Rubros",f("helmut",3)),mf("062","Forma do Campo de Neve","regional","Prado Derivante",f("helmut",2))]},
-{id:63,name:"Pawney",elements:["Sombrio"],habitats:["Planaltos Rubros"],forms:[bf("063","Pawney",a("pawney")),pf("063","Pawney",s("pawney","1002603")),mf("063","Forma Arco-Umbral","regional","Planaltos Rubros",f("pawney",4)),mf("063","Forma da Floresta Montanhosa","regional","Planaltos Rubros",f("pawney",3)),mf("063","Forma do Campo de Neve","regional","Prado Derivante",f("pawney",2))]},
-{id:64,name:"Rookey",elements:["Sombrio"],habitats:["Planaltos Rubros"],forms:[bf("064","Rookey",a("rookey")),mf("064","Forma da Floresta Montanhosa","regional","Planaltos Rubros",f("rookey",3)),mf("064","Forma do Campo de Neve","regional","Prado Derivante",f("rookey",2))]},
-{id:65,name:"Jawling",elements:["Vento"],habitats:["Planaltos Rubros"],forms:[bf("065","Jawling",a("jawling")),mf("065","Forma da Montanha","regional","Planaltos Rubros",f("jawling",2))]},
-{id:66,name:"Helmwhelp",elements:["Vento"],habitats:["Planaltos Rubros"],forms:[bf("066","Helmwhelp",a("helmwhelp")),mf("066","Forma da Montanha","regional","Planaltos Rubros",f("helmwhelp",2))]},
-{id:67,name:"Helgon",elements:["Vento"],habitats:["Planaltos Rubros"],forms:[bf("067","Helgon",a("helgon")),mf("067","Forma da Montanha","regional","Planaltos Rubros",f("helgon",2))]},
-{id:68,name:"Infergon",elements:["Fogo"],habitats:[],forms:[bf("068","Infergon",a("infergon")),pf("068","Infergon",s("infergon","1002503"))]},
-{id:69,name:"Cubbo",elements:["Terra"],habitats:["Bosque da Torre de Rosas"],forms:[bf("069","Cubbo",a("cubbo"))]},
-{id:70,name:"Grizbo",elements:["Terra"],habitats:["Bosque da Torre de Rosas"],forms:[bf("070","Grizbo",a("grizbo")),pf("070","Grizbo",s("grizbo","1050301"))]},
-{id:71,name:"Pebbling",elements:["Terra"],habitats:["Ponte Terrestre de Zéfiro"],forms:[bf("071","Pebbling",a("pebbling"))]},
-{id:72,name:"Lavazar",elements:["Fogo","Terra"],habitats:["Ponte Terrestre de Zéfiro"],forms:[bf("072","Lavazar",a("lavazar"))]},
-{id:73,name:"Magmarex",elements:["Fogo","Terra"],habitats:["Ponte Terrestre de Zéfiro"],forms:[bf("073","Magmarex",a("magmarex")),pf("073","Magmarex",s("magmarex","1028301")),mf("073","Forma Arco-Umbral","regional","Ponte Terrestre de Zéfiro",f("magmarex",2))]},
-{id:74,name:"Geodeback",elements:["Terra"],habitats:[],forms:[bf("074","Geodeback",a("geodeback"))]},
-{id:75,name:"Minespine",elements:["Terra"],habitats:[],forms:[bf("075","Minespine",a("minespine"))]},
-{id:76,name:"Cozite",elements:["Terra"],habitats:["Ponte Terrestre de Zéfiro"],forms:[bf("076","Cozite",a("cozite"))]},
-{id:77,name:"Bailite",elements:["Terra"],habitats:["Ponte Terrestre de Zéfiro"],forms:[bf("077","Bailite",a("bailite"))]},
-{id:78,name:"Bulbly",elements:["Raio"],habitats:["Costa das Flores da Maré"],forms:[bf("078","Bulbly",a("bulbly"))]},
-{id:79,name:"Veilfloat",elements:["Raio"],habitats:["Costa das Flores da Maré"],forms:[bf("079","Veilfloat",a("veilfloat"))]},
-{id:80,name:"Luminelle",elements:["Raio"],habitats:["Costa das Flores da Maré"],forms:[bf("080","Luminelle",a("luminelle")),pf("080","Luminelle",s("luminelle","1014302")),mf("080","Forma Arco-Umbral","regional","Costa das Flores da Maré",f("luminelle",2)),mf("080","Forma da Chuva Torrencial","climatica",s("luminelle","1014301"))]},
-{id:81,name:"Fahloo",elements:["Água"],habitats:["Costa das Flores da Maré"],forms:[bf("081","Fahloo",a("fahloo"))]},
-{id:82,name:"Erlath",elements:["Água"],habitats:["Costa das Flores da Maré"],forms:[bf("082","Erlath",a("erlath"))]},
-{id:83,name:"Besauce",elements:["Raio"],habitats:[],forms:[bf("083","Besauce",a("besauce"))]},
-{id:84,name:"Reefish",elements:["Terra","Água"],habitats:["Baía Crescente"],forms:[bf("084","Reefish",a("reefish")),mf("084","Forma da Chuva Torrencial","climatica",f("reefish",2))]},
-{id:85,name:"Coraliz",elements:["Terra","Água"],habitats:["Baía Crescente"],forms:[bf("085","Coraliz",a("coraliz")),mf("085","Forma da Chuva Torrencial","climatica",f("coraliz",2))]},
-{id:86,name:"Cheekie",elements:["Gelo"],habitats:["Baía Crescente"],forms:[bf("086","Cheekie",a("cheekie"))]},
-{id:87,name:"Wavwal",elements:["Gelo"],habitats:["Baía Crescente"],forms:[bf("087","Wavwal",a("wavwal"))]},
-{id:88,name:"Bubbeep",elements:["Planta","Água"],habitats:["Baía Crescente"],forms:[bf("088","Bubbeep",a("bubbeep"))]},
-{id:89,name:"Glameep",elements:["Planta","Água"],habitats:[],forms:[bf("089","Glameep",a("glameep")),pf("089","Glameep",s("glameep","1058301"))]},
-{id:90,name:"Popapus",elements:["Água"],habitats:["Baía Crescente"],forms:[bf("090","Popapus",a("popapus"))]},
-{id:91,name:"Gachapus",elements:["Água"],habitats:["Baía Crescente"],forms:[bf("091","Gachapus",a("gachapus"))]},
-{id:92,name:"Malangel",elements:["Gelo"],habitats:[],forms:[bf("092","Malangel",a("malangel"))]},
-{id:93,name:"Malevsera",elements:["Gelo"],habitats:[],forms:[bf("093","Malevsera",a("malevsera"))]}
-];
-
-// Adiciona formas Cintilante e Alfa para todos os Aniimos
-aniimos.forEach(aniimo => {
-  const baseImage = aniimo.forms[0].image;
-  aniimo.forms.push({
-    id: `${String(aniimo.id).padStart(3,'0')}-cintilante`,
-    name: "Forma Cintilante",
-    category: "cintilante",
-    image: baseImage
-  });
-  aniimo.forms.push({
-    id: `${String(aniimo.id).padStart(3,'0')}-alfa`,
-    name: "Forma Alfa",
-    category: "alfa",
-    image: baseImage
-  });
-});
-
-const allElements=["Fogo","Água","Planta","Sombrio","Vento","Terra","Gelo","Raio"];
-const allHabitats=Object.keys(HC);
-let capturedForms=JSON.parse(localStorage.getItem('aniidex-captures')||'{}');
-let selectedForms=JSON.parse(localStorage.getItem('aniidex-selected')||'{}');
-let currentElement='all';
-let currentHabitat='all';
-let searchTerm='';
-
-function save(){localStorage.setItem('aniidex-captures',JSON.stringify(capturedForms));localStorage.setItem('aniidex-selected',JSON.stringify(selectedForms))}
-function toggleForm(formId){capturedForms[formId]=!capturedForms[formId];save();render()}
-function selectForm(aniimoId,formId){selectedForms[aniimoId]=formId;save();render()}
-
-function getFiltered(){return aniimos.filter(a=>{if(searchTerm&&!a.name.toLowerCase().includes(searchTerm.toLowerCase()))return false;if(currentElement!=='all'&&!a.elements.includes(currentElement))return false;if(currentHabitat!=='all'&&!a.habitats.includes(currentHabitat))return false;return true})}
-
-function render(){
-const totalCaptured=Object.values(capturedForms).filter(Boolean).length;
-const totalForms=aniimos.reduce((a,b)=>a+b.forms.length,0);
-const pct=totalForms>0?Math.round((totalCaptured/totalForms)*100):0;
-document.getElementById('stats').innerHTML=`<div class="stat-card indigo"><div class="stat-number">${aniimos.length}</div><div class="stat-label">Aniimos no Dex</div></div><div class="stat-card emerald"><div class="stat-number">${totalCaptured}</div><div class="stat-label">Formas Capturadas</div></div><div class="stat-card rose"><div class="stat-number">${pct}%</div><div class="stat-label">Progresso</div></div>`;
-
-const filtered=getFiltered();
-const grid=document.getElementById('grid');
-grid.innerHTML=filtered.map(a=>{
-const cc=a.forms.filter(f=>capturedForms[f.id]).length;
-const tf=a.forms.length;
-const complete=cc===tf;
-const hasCap=cc>0;
-const selFormId=selectedForms[a.id]||a.forms[0].id;
-const selForm=a.forms.find(f=>f.id===selFormId)||a.forms[0];
-const currentImage=selForm.image;
-
-return`<div class="card ${complete?'complete':hasCap?'captured':''}">
-<div class="card-header">
-<div class="card-badges">
-<span class="badge badge-id">#${String(a.id).padStart(3,'0')}</span>
-${a.elements.map(e=>`<span class="badge badge-element" style="background:${EC[e]}20;color:${EC[e]};border-color:${EC[e]}40">${e}</span>`).join('')}
-${complete?'<span class="star">★</span>':''}
-</div>
-<div class="card-name">${a.name}</div>
-<div class="progress-bar"><div class="progress-track"><div class="progress-fill ${complete?'complete':'partial'}" style="width:${(cc/tf)*100}%"></div></div><span class="progress-text">${cc}/${tf}</span></div>
-</div>
-<div class="card-image">
-<div class="image-wrapper ${hasCap?'':'uncaptured'}">
-<img src="${currentImage}" alt="${a.name}" loading="lazy" onerror="this.src='${a.forms[0].image}'">
-${!hasCap?'<div class="image-overlay"><span>Não capturado</span></div>':''}
-<div class="form-label">${selForm.name}</div>
-</div>
-</div>
-<div class="card-forms">
-<button class="forms-toggle" onclick="this.classList.toggle('expanded');this.nextElementSibling.classList.toggle('show')">
-<span>Formas (${cc}/${tf})</span>
-<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-</button>
-<div class="forms-list">
-${a.forms.map(f=>{
-const cap=capturedForms[f.id]||false;
-const sel=selectedForms[a.id]===f.id;
-const fc=f.category==='prismana'?'#A855F7':f.category==='climatica'?'#06B6D4':f.category==='cintilante'?'#F59E0B':f.category==='alfa'?'#EF4444':'#10B981';
-const catLabel=f.category==='basica'?'Base':f.category==='prismana'?'Prismana':f.category==='climatica'?'Clima':f.category==='cintilante'?'Cintilante':f.category==='alfa'?'Alfa':'Região';
-return`<div class="form-item ${cap?'captured':''} ${sel?'selected':''}">
-<div class="form-header">
-<label class="checkbox-wrapper" onclick="event.stopPropagation()"><input type="checkbox" ${cap?'checked':''} onchange="toggleForm('${f.id}')"><div class="checkbox-custom"><svg width="12" height="12" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div></label>
-<span class="form-name" onclick="selectForm(${a.id},'${f.id}')">${f.name}</span>
-<span class="form-category" style="background:${fc}20;color:${fc};border-color:${fc}40">${catLabel}</span>
-<button class="view-btn" onclick="selectForm(${a.id},'${f.id}')">Ver</button>
-</div>
-${(f.region||f.climate)?`<div class="form-info">${f.region?`<span class="form-tag">📍 ${f.region}</span>`:''}${f.climate?`<span class="form-tag">${f.climateIcon} ${f.climate}</span>`:''}</div>`:''}
-</div>`}).join('')}
-</div>
-</div>
-</div>`}).join('');
-}
-
-const filtersDiv=document.getElementById('element-filters');
-filtersDiv.innerHTML=`<button class="filter-btn active" onclick="setElement('all',this)">Todos</button>`+allElements.map(e=>`<button class="filter-btn" onclick="setElement('${e}',this)">${e}</button>`).join('');
-
-const habitatSelect=document.getElementById('habitat-filter');
-habitatSelect.innerHTML='<option value="all">Todas as Regiões</option>'+allHabitats.map(h=>`<option value="${h}">${h}</option>`).join('');
-habitatSelect.onchange=function(){currentHabitat=this.value;render()};
-
-document.getElementById('search').addEventListener('input',e=>{searchTerm=e.target.value;render()});
-
-function setElement(el,btn){
-currentElement=el;
-document.querySelectorAll('#element-filters .filter-btn').forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-if(el!=='all'){btn.style.background=`${EC[el]}20`;btn.style.borderColor=`${EC[el]}60`;btn.style.color=EC[el]}
-else{btn.style.background='';btn.style.borderColor='';btn.style.color=''}
-render()
-}
-
-render();
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AniiDex - Registro de Aniimos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0f172a;
+        color: #e2e8f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
 
 
-+++ index-final.html (修改后)
++++ index.html (修改后)
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AniiDex - Registro Completo de Aniimos</title>
+<title>AniiDex - 100 Aniimos</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#020617 0%,#0f172a 50%,#1e1b4b 100%);color:#e2e8f0;min-height:100vh}.container{max-width:1200px;margin:0 auto;padding:20px;position:relative;z-index:1}.header{text-align:center;margin-bottom:30px}.header-content{display:inline-flex;align-items:center;gap:12px}.logo{width:56px;height:56px;background:linear-gradient(135deg,#6366f1,#9333ea);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 10px 30px rgba(99,102,241,0.3)}.title{font-size:2.5rem;font-weight:900;background:linear-gradient(to right,#a5b4fc,#d8b4fe,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.subtitle{font-size:0.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px}.stat-card{border-radius:12px;padding:16px;text-align:center;border:1px solid}.stat-card.indigo{background:linear-gradient(135deg,rgba(49,46,129,0.4),rgba(88,28,135,0.4));border-color:rgba(99,102,241,0.3)}.stat-card.emerald{background:linear-gradient(135deg,rgba(6,78,59,0.4),rgba(17,94,89,0.4));border-color:rgba(16,185,129,0.3)}.stat-card.rose{background:linear-gradient(135deg,rgba(136,19,55,0.4),rgba(157,23,77,0.4));border-color:rgba(244,63,94,0.3)}.stat-number{font-size:1.8rem;font-weight:700;color:white}.stat-label{font-size:0.7rem;margin-top:4px}.stat-card.indigo .stat-label{color:#a5b4fc}.stat-card.emerald .stat-label{color:#6ee7b7}.stat-card.rose .stat-label{color:#fda4af}.controls{margin-bottom:24px}.search-input{width:100%;padding:12px 16px;background:rgba(30,41,59,0.6);border:1px solid rgba(51,65,85,0.5);border-radius:12px;color:white;font-size:1rem;outline:none;margin-bottom:12px}.search-input:focus{border-color:rgba(99,102,241,0.5);box-shadow:0 0 0 3px rgba(99,102,241,0.1)}.search-input::placeholder{color:#64748b}.filter-label{font-size:0.75rem;color:#64748b;font-weight:500;margin-right:8px}.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}.filter-btn{padding:6px 12px;border-radius:8px;font-size:0.75rem;font-weight:500;cursor:pointer;border:1px solid rgba(51,65,85,0.3);background:rgba(30,41,59,0.4);color:#94a3b8;transition:all 0.2s}.filter-btn:hover{color:white;border-color:rgba(100,116,139,0.5)}.filter-btn.active{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.card{border-radius:16px;overflow:hidden;transition:transform 0.3s;border:2px solid rgba(51,65,85,0.4);background:linear-gradient(135deg,rgba(30,41,59,0.6),rgba(15,23,42,0.6))}.card:hover{transform:scale(1.02)}.card.complete{border-color:rgba(250,204,21,0.6);background:linear-gradient(135deg,rgba(88,28,135,0.4),rgba(49,46,129,0.4))}.card.captured{border-color:rgba(16,185,129,0.4)}.card-header{padding:16px 16px 8px}.card-badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.badge{font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:999px}.badge-id{background:rgba(51,65,85,0.5);color:#94a3b8}.badge-element{border:1px solid}.card-name{font-size:1.2rem;font-weight:700;color:white;margin-top:8px}.progress-bar{display:flex;align-items:center;gap:8px;margin-top:6px}.progress-track{flex:1;height:6px;background:#334155;border-radius:999px;overflow:hidden}.progress-fill{height:100%;border-radius:999px;transition:width 0.5s}.progress-fill.complete{background:linear-gradient(to right,#facc15,#f59e0b)}.progress-fill.partial{background:linear-gradient(to right,#34d399,#14b8a6)}.progress-text{font-size:0.75rem;color:#94a3b8}.card-image{padding:8px 16px;position:relative}.image-wrapper{border-radius:12px;overflow:hidden;position:relative;cursor:pointer;background:#1e293b}.image-wrapper img{width:100%;height:140px;object-fit:contain;padding:8px;transition:all 0.3s ease;display:block}.image-wrapper.uncaptured img{filter:grayscale(1);opacity:0.4}.image-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2);pointer-events:none}.image-overlay span{font-size:0.875rem;color:#94a3b8;background:rgba(15,23,42,0.8);padding:4px 12px;border-radius:999px}.form-label{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:0.7rem;font-weight:600;color:white;background:rgba(0,0,0,0.8);padding:4px 12px;border-radius:999px;pointer-events:none;white-space:nowrap;backdrop-filter:blur(4px);z-index:10}.card-forms{padding:8px 16px 16px}.forms-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:8px 0;background:none;border:none;color:#cbd5e1;font-size:0.875rem;font-weight:500;cursor:pointer}.forms-toggle:hover{color:white}.forms-toggle svg{transition:transform 0.3s}.forms-toggle.expanded svg{transform:rotate(180deg)}.forms-list{margin-top:8px;display:none}.forms-list.show{display:block}.form-item{border-radius:12px;padding:12px;margin-bottom:8px;transition:all 0.3s;border:1px solid rgba(51,65,85,0.3);background:rgba(30,41,59,0.4);cursor:pointer}.form-item:hover{border-color:rgba(100,116,139,0.5);background:rgba(30,41,59,0.6)}.form-item.captured{background:rgba(6,78,59,0.2);border-color:rgba(16,185,129,0.3)}.form-item.selected{border-color:rgba(168,85,247,0.6);background:rgba(168,85,247,0.1);box-shadow:0 0 12px rgba(168,85,247,0.2)}.form-header{display:flex;align-items:center;gap:8px}.checkbox-wrapper{position:relative;flex-shrink:0}.checkbox-wrapper input{position:absolute;opacity:0;width:0;height:0}.checkbox-custom{width:20px;height:20px;border-radius:4px;border:2px solid #64748b;display:flex;align-items:center;justify-content:center;transition:all 0.2s;cursor:pointer}.checkbox-wrapper input:checked+.checkbox-custom{border-color:#34d399;background:#10b981}.checkbox-custom svg{display:none}.checkbox-wrapper input:checked+.checkbox-custom svg{display:block}.form-name{font-size:0.875rem;font-weight:600;color:#cbd5e1;flex:1}.form-item.captured .form-name{color:#6ee7b7}.form-item.selected .form-name{color:#d8b4fe}.form-category{font-size:0.625rem;font-weight:700;padding:2px 6px;border-radius:999px;text-transform:uppercase;border:1px solid;flex-shrink:0}.view-btn{font-size:0.625rem;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid rgba(168,85,247,0.4);background:rgba(168,85,247,0.1);color:#d8b4fe;cursor:pointer;transition:all 0.2s;flex-shrink:0}.view-btn:hover{background:rgba(168,85,247,0.2);border-color:rgba(168,85,247,0.6)}.form-info{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.form-tag{font-size:0.7rem;color:#94a3b8;background:rgba(51,65,85,0.5);padding:2px 8px;border-radius:999px}.star{color:#facc15;font-size:1.2rem;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}.footer{text-align:center;margin-top:60px;padding-bottom:30px;color:#475569;font-size:0.875rem}.footer a{color:#818cf8;text-decoration:underline}@media(max-width:768px){.title{font-size:1.8rem}.stats{grid-template-columns:repeat(3,1fr);gap:8px}.stat-card{padding:12px 8px}.stat-number{font-size:1.4rem}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.card-name{font-size:1rem}.image-wrapper img{height:120px}.form-item{padding:10px}.form-name{font-size:0.75rem}.form-category{font-size:0.6rem}.view-btn{font-size:0.6rem;padding:2px 6px}}@media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:8px}.card-header{padding:12px 12px 6px}.card-image{padding:6px 12px}.card-forms{padding:6px 12px 12px}.image-wrapper img{height:100px}}.bg-effect{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}.bg-blob{position:absolute;border-radius:50%;filter:blur(80px);animation:float 8s ease-in-out infinite}.bg-blob-1{top:25%;left:-80px;width:300px;height:300px;background:rgba(139,92,246,0.1)}.bg-blob-2{bottom:25%;right:-80px;width:400px;height:400px;background:rgba(99,102,241,0.1);animation-delay:2s}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
 </style>
@@ -282,8 +62,6 @@ const HC={"Campos de Nimbus":{c:"Ensolarado",i:"☀️"},"Crista da Presa Bestia
 function mf(id,nm,ct,hb,im){const f={id:`${id}-${nm.toLowerCase().replace(/\s+/g,'-')}`,name:nm,category:ct,image:im};if(hb&&HC[hb]){f.region=hb;f.climate=HC[hb].c;f.climateIcon=HC[hb].i}return f}
 const bf=(id,nm,im)=>({id:`${id}-basica`,name:"Forma Básica",category:"basica",image:im});
 const pf=(id,nm,im)=>({id:`${id}-prismana`,name:"Forma Prismana",category:"prismana",image:im});
-const sf=(id,nm,im)=>({id:`${id}-cintilante`,name:"Forma Cintilante",category:"cintilante",image:im});
-const af=(id,nm,im)=>({id:`${id}-alfa`,name:"Forma Alfa",category:"alfa",image:im});
 
 const aniimos=[
 {id:1,name:"Emberpup",elements:["Fogo"],habitats:["Campos de Nimbus","Bosques Nebulosos","Estreito Argênteo","Pouso do Eco","Crista da Presa Bestial"],forms:[bf("001","Emberpup",a("emberpup")),mf("001","Forma das Terras Altas","regional","Campos de Nimbus",f("emberpup",2)),mf("001","Forma da Floresta Montanhosa","regional","Crista da Presa Bestial",f("emberpup",3))]},
@@ -378,7 +156,6 @@ const aniimos=[
 {id:91,name:"Gachapus",elements:["Água"],habitats:["Baía Crescente"],forms:[bf("091","Gachapus",a("gachapus"))]},
 {id:92,name:"Malangel",elements:["Gelo"],habitats:[],forms:[bf("092","Malangel",a("malangel"))]},
 {id:93,name:"Malevsera",elements:["Gelo"],habitats:[],forms:[bf("093","Malevsera",a("malevsera"))]},
-// Aniimos Especiais e Novos
 {id:94,name:"Socarutaca",elements:["Água"],habitats:[],forms:[bf("094","Socarutaca",a("jabster")),{id:"094-umbral",name:"Forma Umbral",category:"umbral",image:a("jabster")}]},
 {id:95,name:"Metamorfo",elements:["Fogo"],habitats:[],forms:[bf("095","Metamorfo",a("morphling")),{id:"095-umbral",name:"Forma Umbral",category:"umbral",image:a("morphling")}]},
 {id:96,name:"Irisális",elements:["Planta"],habitats:[],forms:[bf("096","Irisális",a("irisalis"))]},
@@ -388,32 +165,17 @@ const aniimos=[
 {id:100,name:"Hélion",elements:["Luz"],habitats:[],forms:[bf("100","Hélion",a("helion"))]}
 ];
 
-// Adiciona formas Cintilante e Alfa para todos os Aniimos
-aniimos.forEach(aniimo => {
-  const baseImage = aniimo.forms[0].image;
-  aniimo.forms.push({
-    id: `${String(aniimo.id).padStart(3,'0')}-cintilante`,
-    name: "Forma Cintilante",
-    category: "cintilante",
-    image: baseImage
-  });
-  aniimo.forms.push({
-    id: `${String(aniimo.id).padStart(3,'0')}-alfa`,
-    name: "Forma Alfa",
-    category: "alfa",
-    image: baseImage
-  });
-});
+aniimos.forEach(aniimo=>{const baseImage=aniimo.forms[0].image;aniimo.forms.push({id:`${String(aniimo.id).padStart(3,'0')}-cintilante`,name:"Forma Cintilante",category:"cintilante",image:baseImage});aniimo.forms.push({id:`${String(aniimo.id).padStart(3,'0')}-alfa`,name:"Forma Alfa",category:"alfa",image:baseImage})});
 
 const allElements=["Fogo","Água","Planta","Sombrio","Vento","Terra","Gelo","Raio","Luz"];
 const allHabitats=Object.keys(HC);
-let capturedForms=JSON.parse(localStorage.getItem('aniidex-captures-v3')||'{}');
-let selectedForms=JSON.parse(localStorage.getItem('aniidex-selected-v3')||'{}');
+let capturedForms=JSON.parse(localStorage.getItem('aniidex-v4')||'{}');
+let selectedForms=JSON.parse(localStorage.getItem('aniidex-sel-v4')||'{}');
 let currentElement='all';
 let currentHabitat='all';
 let searchTerm='';
 
-function save(){localStorage.setItem('aniidex-captures-v3',JSON.stringify(capturedForms));localStorage.setItem('aniidex-selected-v3',JSON.stringify(selectedForms))}
+function save(){localStorage.setItem('aniidex-v4',JSON.stringify(capturedForms));localStorage.setItem('aniidex-sel-v4',JSON.stringify(selectedForms))}
 function toggleForm(formId){capturedForms[formId]=!capturedForms[formId];save();render()}
 function selectForm(aniimoId,formId){selectedForms[aniimoId]=formId;save();render()}
 
